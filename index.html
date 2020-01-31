@@ -1,0 +1,98 @@
+﻿<html>
+<header class="placeholder-section">
+
+<img src="image1.jpg" alt="Fairness in a real social network" style="width:100%;height:100%;">
+
+
+</header>
+<link rel="stylesheet" href="index.css">
+<script src="index.js"></script>
+
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+
+
+
+<ul>
+  <li><a class="active" href="#about">About</a></li>
+  <li><a href="#problem">Problem</a></li>
+  <li><a href="#fairness">Fairness</a></li>
+  <li><a href="#approach">Our approach</a></li>
+    <li><a href="#contact-us">Contact us</a></li>
+</ul>
+
+
+<main id="main-content" class="page-sections">
+  <section class="page-section">
+    <h2 class="section-title" id="about">About</h2>
+    <p>Τα κοινωνικά δίκτυα είναι ένα σύνολο αλληλεπιδράσεων και διαπροσωπικών σχέσεων. Ο όρος σήμερα χρησιμοποιείται επίσης για να περιγράψει ιστοσελίδες οι οποίες επιτρέπουν την διεπαφή ανάμεσα στους χρήστες, π.χ. με σχόλια, φωτογραφίες.
+Τα online κοινωνικά δίκτυα στις μέρες μας επηρεάζουν τις ζωές των ανθρώπων.
+Στα κοινωνικά δίκτυα συνήθως δεν εμφανίζεται δικαιοσύνη (fairness) σε πολλούς τομείς.
+Μέσα από αυτό το project εξετάζουμε την δικαιοσύνη που υπάρχει σε ένα πραγματικό κοινωνικό δίκτυο καθώς και τις επιπτώσεις αυτής.</p>
+    
+  </section>
+  <section class="page-section">
+    <h2 class="section-title" id="problem">Problem</h2>
+	<p>Οι ομάδες μειονότητας στα πραγματικά κοινωνικά δίκτυα αδικούνται ως προς:
+	Τη δυνατότητα δημιουργίας νέων συνδέσεων.
+	Τη δυνατότητα πρόσβασης στη πληροφορία.
+	Γενικότερα με τη χρήση αλγορίθμων σε διάφορες εφαρμογές όπως μηχανές αναζήτησης, συστήματα προτάσεων (recommendation systems) και σε διαδικασίες πρόσληψης.</p>
+
+   
+  </section>
+  <section class="page-section">
+    <h2 class="section-title" id="fairness">Fairness</h2>
+    <p> Πρόκειται για μια μετρική η οποία χρησιμοποιείται στα κοινωνικά δίκτυα με ποικίλους τρόπους.
+	Στη περίπτωση μας, θα χρησιμοποιήσουμε ως κοινωνικό δίκτυο το Github για να μετρήσουμε την δικαιοσύνη.</p>
+  </section>
+  <section class="page-section">
+    <h2 class="section-title" id="approach">Our approach</h2>
+    <p>How to measure Parity Fairness; Θα εξετάσουμε το φύλο από πολλούς χρήστες οι οποίοι συνδέονται μεταξύ τους στο Github.
+Αρχικά θα συλλέξουμε δεδομένα σχετικά με συνδέσεις χρηστών στο GitHub, χρησιμοποιώντας τις κλήσεις συστήματος (API) που προσφέρει για την συλλογή δεδομένων.
+Στην συνέχεια θα βρούμε το φύλο των κόμβων με κατάλληλο λογισμικό.
+Απο τους χρήστες-κόμβους που θα έχουμε στο γράφημα βρίσκουμε τους top με βάση τα stars που έχουν στα projects τους ή με βάση τα fork που έχουν συνολικά τα repositories του κάθε χρήστη.
+Με αυτό τον τρόπο θα τους κατατάξουμε.
+Έπειτα, θα εξάγουμε στατιστικά σχετικά με το φύλο και την κατάταξη.
+Θα ξεκινήσουμε από έναν κόμβο ο οποίος έχει σχετικά μεγάλο degree.
+Έπειτα, λαμβάνοντας υπόψην τα άτομα τα οποία ακολουθεί και τον ακολουθούν, θα εισάγουμε και αυτούς (FIFO, BFS) και τις αντίστοιχες ακμές μεταξύ τους (following-followers).
+Θα σταματήσουμε αφού πάρουμε ικανοποιητικό αριθμό από κόμβους.
+Θα μεταδώσουμε μια πληροφορία από έναν μικρό αριθμό κόμβων, (π.χ. κάποιους με μεγάλο degree).
+Σκόπος είναι αυτή η πληροφορία να μεταδοθεί σε όσο το δυνατόν περισσότερες κατηγορίες ομάδων έχουμε. 
+Δε μας ενδιαφέρει ποια θα είναι η πληροφορία, αλλά τους κόμβους που θα “επηρεάσει/προσεγγίσει”.
+</p>
+
+  </section>
+  <section class="page-section">
+    <h2 class="section-title" id="contact-us">Contact Us</h2>
+    <p><b>gtkalampokis@gmail.com <br>
+	fation.sh94@gmail.com</b></p>
+  </section>
+</main>
+<footer class="placeholder-section">
+  <p><b> Copyrights © 2019 - 2020 Kalampokis Georgios-Theodoros<br>Copyrights © 2019 - 2020 Shehaj Fation</b></p>
+</footer>
+
+</html>
