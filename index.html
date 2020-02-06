@@ -38,6 +38,7 @@ li a:hover {
 
 <ul>
   <li><a class="active" href="#abstract">Abstract</a></li>
+  <li><a class="active" href="#introduction">Introduction</a></li>
   <li><a href="#implementation">Implementation</a></li>
   <li><a href="#results">Results - Statistics</a></li>
   <li><a href="#conclusion">Conclusion - Future Work</a></li>
@@ -56,6 +57,19 @@ li a:hover {
 </p>
     
   </section>
+	
+<main id="main-content" class="page-sections">
+  <section class="page-section">
+    <h2 class="section-title" id="introduction">Introduction</h2>	
+	Fairness influences the way that connections between users are being created as well as the way information is being diffused between them. For this reason we decided to rank the nodes by their degree. We test parity fairness by counting the percentage of women in the top positions compared to the percentage of women in the global population. Then, assume a diffusion process in these networks using the IC (Independent Cascade) model with a small number of seeds. Afterwards, we test parity fairness in the affected nodes.
+The main reason why fairness in social networks is important, is because it affects a lot of areas like search engines, recommendation systems, recruitment procedures, etc. For that reason we came up with the idea to examine fairness in a real social network.
+The main goal of our work is to examine if minorities, in real social networks, seem to be in a disadvantageous position in areas like creating new friends or getting access to information. Therefore, majorities appear to be in an advantageous position in the aforementioned areas.The reason why, this problem has not been addressed so far, is because, there is not a standard way to adjust fairness in a real social network. So, what we can do is examine it, and notice the behavior of the network.
+The general idea, was to rank nodes depending on their degree, by using PageRank algorithm. In order to find out how information was being diffused through the graph, we used the IC (Independent Cascade) model, starting with a small number of seeds. 
+Concerning the results of our work, we found big differences between the world popularity and the GitHub. According to a 2018 study the sex ratio for the entire world population was 101 males to 100 females (~49.76% females). In our graphs the average of women existing in Github was ~9%. 
+Meaningful contributions to our work, were Github, Wikipedia and Scientific Report “Homophily influences ranking of minorities in social networks”.
+  </section>
+	
+	
   <section class="page-section">
     <h2 class="section-title" id="implementation">Implementation</h2>
 	<p>First of all, we had to decide which data we were about to collect. We wanted to specify the gender of the users in Github, and for that reason we ended up storing the name of the users as well as the connections between them. To prevent biased results, we decided to create multiple graphs based on different seeds (users). As starting points we chose both men and women with specific attributes such as top followers, top contributions, in order to compare and spot the differences in the results. We also used a different approach starting from a top in contributors repository, using as seeds all the participants of the project.
