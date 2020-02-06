@@ -38,16 +38,16 @@ li a:hover {
 
 <ul>
   <li><a class="active" href="#abstract">Abstract</a></li>
-  <li><a href="#problem">Problem</a></li>
-  <li><a href="#fairness">Fairness</a></li>
-  <li><a href="#approach">Our approach</a></li>
+  <li><a href="#implementation">Implementation</a></li>
+  <li><a href="#results">Results - Statistics</a></li>
+  <li><a href="#conclusion">Conclusion - Future Work</a></li>
     <li><a href="#contact-us">Contact us</a></li>
 </ul>
 
 
 <main id="main-content" class="page-sections">
   <section class="page-section">
-    <h2 class="section-title" id="abstract">Astract</h2>
+    <h2 class="section-title" id="abstract">Abstract</h2>
     <p>Social networks are a set of interactions and interpersonal relationships. 
 	    The term is also now used to describe websites that allow the interface between users, e.g. with comments, photos etc. 
 	    The main goal of this paper is to  measure fairness in a real social network, in particular Github, and how it affects the way information is being diffused between the users. 
@@ -57,33 +57,30 @@ li a:hover {
     
   </section>
   <section class="page-section">
-    <h2 class="section-title" id="problem">Problem</h2>
-	<p>Οι ομάδες μειονότητας στα πραγματικά κοινωνικά δίκτυα αδικούνται ως προς:
-	Τη δυνατότητα δημιουργίας νέων συνδέσεων.
-	Τη δυνατότητα πρόσβασης στη πληροφορία.
-	Γενικότερα με τη χρήση αλγορίθμων σε διάφορες εφαρμογές όπως μηχανές αναζήτησης, συστήματα προτάσεων (recommendation systems) και σε διαδικασίες πρόσληψης.</p>
+    <h2 class="section-title" id="implementation">Implementation</h2>
+	<p>First of all, we had to decide which data we were about to collect. We wanted to specify the gender of the users in Github, and for that reason we ended up storing the name of the users as well as the connections between them. To prevent biased results, we decided to create multiple graphs based on different seeds (users). As starting points we chose both men and women with specific attributes such as top followers, top contributions, in order to compare and spot the differences in the results. We also used a different approach starting from a top in contributors repository, using as seeds all the participants of the project.
+In our implementation, except of the graph file we created a second file which consisted of the names of the nodes.
+After creating the graphs, we had to do a preprocessing of the collecting data before starting running the algorithms. The major part of the preprocessing was that  names needed to be filtered. In order to do that we removed, when it was necessary, the numbers from the names and we splitted the first name from lastname. Afterwards, in order to specify the gender of the users for each graph, we used only the first name as input to the “gender-guesser” library.
+We didn’t taκe into consideration any of the names that were specified as unknown by the aforementioned algorithm. For names that were andy which means either male or female, we specified their gender based on the percentages of each graph. In the existing file with the names of the nodes we added the gender of each user.
+For the ranking of nodes we decided to use the PageRank algorithm. More specifically we used the NetworkX implementation of PageRank to rank our nodes, reordering them in the second file based on the results of the algorithm.
+PageRank computes a ranking of the nodes in the graph G based on the structure of the incoming links. It was originally designed as an algorithm to rank web pages (NetworkX definition). Larry Page and Sergey Brin developed PageRank at Stanford University in 1996 as part of a research project about a new kind of search engine. PageRank (PR) is an algorithm used by Google Search to rank web pages in their search engine results. It works by counting the number and quality of links to a page (node in our case), to determine a rough estimate of how important the website-node is. The underlying assumption is that more important websites-nodes are likely to receive more links from other websites-nodes.
+	  For the diffusion process we used the Independent Cascade Model (ICM). Each node may be active (has the information) or inactive (does not have the information). At time t, every node v that became active in time t-1 activates a non-active neighbor w with probability puw. If it fails, it does not try again. It is the same as the simple SIR model. In our implementation, we took advantage of the fact that the probability of diffusion is not dependent on any factor within the model. So, we precalculated that probability from the start, removed the “dead-edges” and stored the outcome graph. Afterwards, we used the DFS traversal with different seeds. The seeds that we used were, the top ranked male and female and a  random male and female from the end (almost last ranked).
+Despite the fact that males were much more than females, surprisingly females did not experience an unfair situation in any of the graphs. This was due to the fact that females were connected with males (that were getting the information), and as a result of that, they were losing the information in rare cases.
+</p>
 
    
   </section>
   <section class="page-section">
-    <h2 class="section-title" id="fairness">Fairness</h2>
-    <p> Πρόκειται για μια μετρική η οποία χρησιμοποιείται στα κοινωνικά δίκτυα με ποικίλους τρόπους.
-	Στη περίπτωση μας, θα χρησιμοποιήσουμε ως κοινωνικό δίκτυο το Github για να μετρήσουμε την δικαιοσύνη.</p>
+    <h2 class="section-title" id="results">Results - Statistics</h2>
+    <p> A general observation of our graphs is that the majority of GitHub consists of males with average percentage 91%, and the minority of females with average percentage 9%. As aforementioned,, the sex ratio for the entire world population is 101 males to 100 females (~50.24% males). No matter the gender of the seed, starting from a top follower-user the percentages remain the same. When we started from a user that was top in contributions, we realised that each gender tends to cooperate (nearly 2%) more  with users of the same gender. As soon as we started from a repository with many users, we ended up with something unexpected. Compared with the previous graphs, the presence of females was the biggest with average 12%. 
+From the diffusion process, we found out that no matter the graph and the seed we started, information reached nearly the same percentage of users. Percentages from the affected nodes, of both genders were nearly the same with the percentages of the started graph. So, we concluded that all graphs were heterophilic. This might happens because connections between users are being created based on the cooperations rather than the gender. 
+Our results are in accordance with the results of the aforementioned  publication where they proved that successful information transmission was higher in heterophilic environments.
+</p>
   </section>
   <section class="page-section">
-    <h2 class="section-title" id="approach">Our approach</h2>
-    <p>How to measure Parity Fairness; Θα εξετάσουμε το φύλο από πολλούς χρήστες οι οποίοι συνδέονται μεταξύ τους στο Github.
-Αρχικά θα συλλέξουμε δεδομένα σχετικά με συνδέσεις χρηστών στο GitHub, χρησιμοποιώντας τις κλήσεις συστήματος (API) που προσφέρει για την συλλογή δεδομένων.
-Στην συνέχεια θα βρούμε το φύλο των κόμβων με κατάλληλο λογισμικό.
-Απο τους χρήστες-κόμβους που θα έχουμε στο γράφημα βρίσκουμε τους top με βάση τα stars που έχουν στα projects τους ή με βάση τα fork που έχουν συνολικά τα repositories του κάθε χρήστη.
-Με αυτό τον τρόπο θα τους κατατάξουμε.
-Έπειτα, θα εξάγουμε στατιστικά σχετικά με το φύλο και την κατάταξη.
-Θα ξεκινήσουμε από έναν κόμβο ο οποίος έχει σχετικά μεγάλο degree.
-Έπειτα, λαμβάνοντας υπόψην τα άτομα τα οποία ακολουθεί και τον ακολουθούν, θα εισάγουμε και αυτούς (FIFO, BFS) και τις αντίστοιχες ακμές μεταξύ τους (following-followers).
-Θα σταματήσουμε αφού πάρουμε ικανοποιητικό αριθμό από κόμβους.
-Θα μεταδώσουμε μια πληροφορία από έναν μικρό αριθμό κόμβων, (π.χ. κάποιους με μεγάλο degree).
-Σκόπος είναι αυτή η πληροφορία να μεταδοθεί σε όσο το δυνατόν περισσότερες κατηγορίες ομάδων έχουμε. 
-Δε μας ενδιαφέρει ποια θα είναι η πληροφορία, αλλά τους κόμβους που θα “επηρεάσει/προσεγγίσει”.
+    <h2 class="section-title" id="conclusion">Conclusion - Future Work</h2>
+    <p>The way that information is being diffused through the users of a social network in general is very important. For instance, supposing the information is a job advertisement, there might be users that are really interested in it, and may not be able to have access to that information. As we noticed, the network of GitHub was not fair compared to the global percentages of males and females, something that we were expecting before we even started the project. Nevertheless, the information was fairly diffused to the nodes of each graph.  
+In the future it may be useful to do the same project analysis for other types of social networks, in order to specify the fairness of them as well as to find out if they behave in the same way. We believe that other social networks like instagram or facebook where the connections aren’t created based on cooperations, as in Github, the diffusion process might not have the same fair behavior.
 </p>
 
   </section>
