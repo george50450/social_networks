@@ -61,6 +61,7 @@ h3 {
   height: 350px;
   background: #111;
   position: fixed; left: 0; bottom: 0;
+  text-align: center;
   z-index: -100;
 }
    .fixed_footer p{
