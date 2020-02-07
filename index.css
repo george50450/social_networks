@@ -1,4 +1,6 @@
-﻿:root {
+@import url(https://fonts.googleapis.com/css?family=Merriweather:300,900);
+
+:root {
   --space: 1rem;
   --border: 4px;
   --page-width: 80ch;
@@ -21,6 +23,8 @@ html {
   --scroll-behavior: smooth;
   scroll-behavior: var(--scroll-behavior);
   
+  background: rgb(236, 240, 241);
+  
   @media (prefers-reduced-motion: reduce) {
     --scroll-behavior: auto;
   }
@@ -29,6 +33,7 @@ html {
 body {
   font-family: var(--font-family);
   line-height: 1.5;
+  background: rgb(236, 240, 241);
 }
 
 h1, h2, h3 {
