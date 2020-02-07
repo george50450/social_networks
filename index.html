@@ -43,10 +43,10 @@ li a:hover {
   <li><a class="active" href="#data">Data</a></li>
   <li><a href="#ranking">Ranking</a></li>
   <li><a href="#diffusion">Diffusion</a></li>
-  <li><a href="#challenges">Challenges</a></li>
   <li><a href="#results">Results - Statistics</a></li>
+  <li><a href="#challenges">Challenges</a></li>
   <li><a href="#conclusion">Conclusion - Future Work</a></li>
-    <li><a href="#contact-us">Contact us</a></li>
+  <li><a href="#contact-us">Contact us</a></li>
 </ul>
 
 
@@ -102,22 +102,13 @@ PageRank computes a ranking of the nodes in the graph G based on the structure o
    
   </section>
 	
-	  <section class="page-section">
+	<section class="page-section">
     <h2 class="section-title" id="diffusion">Diffusion</h2>
 	<p>
 		For the diffusion process we used the Independent Cascade Model (ICM). Each node may be active (has the information) or inactive (does not have the information). At time t, every node v that became active in time t-1 activates a non-active neighbor w with probability puw. If it fails, it does not try again. It is the same as the simple SIR model. In our implementation, we took advantage of the fact that the probability of diffusion is not dependent on any factor within the model. So, we precalculated that probability from the start, removed the “dead-edges” and stored the outcome graph. Afterwards, we used the DFS traversal with different seeds. The seeds that we used were, the top ranked male and female and a  random male and female from the end (almost last ranked).
 Despite the fact that males were much more than females, surprisingly females did not experience an unfair situation in any of the graphs. This was due to the fact that females were connected with males (that were getting the information), and as a result of that, they were losing the information in rare cases.
 	  </p>
    
-  </section>
-	
-	
-		  </section>
-  <section class="page-section">
-    <h2 class="section-title" id="challenges">Challenges</h2>
-	<p>
-		During our work we experienced some difficulties. First of all, GitHub has a specific request limit and for that reason it was very time-consuming to collect our data.  Also, the API of  GitHub isn’t providing as field the gender of the users so we had to use a python library to specify it. We had to filter names so they were compatible with the input of the algorithm. There was not a standard way to filter them and keep the useful information because of the strange names of users. Nevertheless, we managed to find a way without losing much of the accuracy of the results. 
-	</p>
   </section>
 	
 	
@@ -128,8 +119,14 @@ From the diffusion process, we found out that no matter the graph and the seed w
 Our results are in accordance with the results of the aforementioned  publication where they proved that successful information transmission was higher in heterophilic environments.
 </p>
   </section>
-	
 
+	
+  <section class="page-section">
+    <h2 class="section-title" id="challenges">Challenges</h2>
+	<p>
+		During our work we experienced some difficulties. First of all, GitHub has a specific request limit and for that reason it was very time-consuming to collect our data.  Also, the API of  GitHub isn’t providing as field the gender of the users so we had to use a python library to specify it. We had to filter names so they were compatible with the input of the algorithm. There was not a standard way to filter them and keep the useful information because of the strange names of users. Nevertheless, we managed to find a way without losing much of the accuracy of the results. 
+	</p>
+  </section>
 	
 	
   <section class="page-section">
