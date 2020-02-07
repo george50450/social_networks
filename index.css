@@ -65,8 +65,7 @@ h3 {
 }
    .fixed_footer p{
     color: #696969;
-    column-count: 2;
-    column-gap: 50px;
+    column-count: 1;
     font-size: 1em;
     font-weight: 300;
  }
