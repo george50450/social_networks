@@ -72,6 +72,8 @@ li a:hover {
 
 .footer {
     position: absolute;
+    width: 100%;
+    text-align: center;
     bottom: 0;
     background: #444444;
     height: 100px;
