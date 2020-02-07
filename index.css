@@ -48,10 +48,10 @@ h3 {
 
 }
 
-footer {
+#footer {
   text-align: center;
-  font-size: 70%;
-  height: 50px;
+  font-size: 60%;
+  height: 80px;
   background: #b3b3cc;
   color: #fff;
 }
