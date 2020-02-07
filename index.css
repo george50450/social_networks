@@ -48,7 +48,28 @@ h3 {
 
 }
 
+footer {
+  text-align: center;
+  height: 100px;
+  background: #222;
+  color: #fff;
+}
 
+footer:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+  min-height: inherit;
+  max-height: inherit;
+  padding: 0;
+}
+ 
+.centered { /* the element to center */
+  display: inline-block;
+  vertical-align: middle;
+}
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
