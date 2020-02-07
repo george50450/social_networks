@@ -14,16 +14,6 @@
   box-sizing: border-box;
 }
 
-#footer {
-    position: absolute;
-    bottom: 0;
-    background: #444444;
-    height: 100px;
-    font-family: 'Open Sans', sans-serif;
-    color: #FFFFFF;
-    padding: 20px;
-}
-
 html {
   --scroll-behavior: smooth;
   scroll-behavior: var(--scroll-behavior);
@@ -78,6 +68,16 @@ li a:hover {
       color: var(--color-active);
     }
   }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    background: #444444;
+    height: 100px;
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+    padding: 40px;
 }
 
 .active-line {
