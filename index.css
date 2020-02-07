@@ -54,11 +54,6 @@ footer {
   background: #222;
   color: #fff;
 }
- 
-.centered { /* the element to center */
-  display: inline-block;
-  vertical-align: middle;
-}
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
