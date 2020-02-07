@@ -110,7 +110,8 @@ li a:hover {
 }
 
 .page-sections {
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 350px; /* Same height as footer */
   max-width: var(--page-width);
 }
 
